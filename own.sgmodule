@@ -43,5 +43,4 @@ rrtv.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.c
 
 
 [MITM]
-
 hostname = %APPEND% api.mvmtv.com, mp.weixin.qq.com, api.rr.tv, vipapi.jxedt.com,education.github.com, api.m.jd.com
