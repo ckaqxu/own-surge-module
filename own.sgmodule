@@ -39,8 +39,19 @@ rrtv.js = type=cron,cronexp=5 0 * * *,wake-system=1,script-path=https://raw.gith
 # 人人视频
 rrtv.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/rrtv.js,type=http-response,pattern=^https:\/\/api\.rr\.tv(\/user\/privilege\/list|\/ad\/getAll|\/rrtv-video\/v4plus\/season\/detail)
 
+# 京东多合一签到
 京东多合一签到 = type=cron,cronexp=5 0 * * *,wake-system=1,timeout=60,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
 
+# > 微信 App 内被屏蔽链接快捷跳转
+weixin110.js = type=http-response,requires-body=1,max-size=-1,pattern=^https?:\/\/weixin110\.qq\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi,script-path=https://raw.githubusercontent.com/HotKids/Rules/master/Script/weixin110.js
 
+# 电信营业厅
+电信营业厅 = type=cron,cronexp=20 0 0 * * *,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/10000/10000.js,script-update-interval=0
+
+# 喜马拉雅
+喜马拉雅 = type=cron,cronexp=40 1 0 * * *,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/ximalaya/ximalaya.js,script-update-interval=0
+
+# > 吾爱破解
+吾爱破解 = type=cron,cronexp=10 0 0 * * *,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/52pojie-DailyBonus/52pojie.js,script-update-interval=0
 [MITM]
-hostname = %APPEND% api.mvmtv.com, mp.weixin.qq.com, api.rr.tv, vipapi.jxedt.com,education.github.com, api.m.jd.com
+hostname = %APPEND% api.mvmtv.com, mp.weixin.qq.com, api.rr.tv, vipapi.jxedt.com,education.github.com, api.m.jd.com, weixin110.qq.com,www.52pojie.cn,wapside.189.cn:9001,mobwsa.ximalaya.com
