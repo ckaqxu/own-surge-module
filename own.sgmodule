@@ -1,3 +1,6 @@
+#!name=own-surge-module
+#!desc=自用模块
+
 [Host]
 *.itunes.apple.com = script:Dnspod
 
