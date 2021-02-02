@@ -1,0 +1,44 @@
+[Host]
+*.itunes.apple.com = script:Dnspod
+
+[Header Rewrite]
+^https?://zhidao\.baidu\.com header-replace User-Agent "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.2 Safari/605.1.15"
+^*.bdimg.com header-del Referer
+^*.qpic.cn header-replace User-Agent "WeChat/6.5.22.32 CFNetwork/889.9 Darwin/17.2.0"
+^*.qpic.cn header-del Referer
+^*.ph.126.net header-del Referer
+^*.zhimg.com header-del Referer
+^*.cnbetacdn.com header-del Referer
+^*.zhiding.cn header-del Referer
+^*.c114.com.cn header-del Referer
+^https?://www.biquge.com.tw header-del Cookie
+^https?://www.zhihu.com/question/ header-replace User-Agent "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.45 Safari/537.36"
+
+[Script]
+# Speed up download app ios
+Dnspod = type=dns,script-path=https://raw.githubusercontent.com/maicoobox/Surge/master/Script/dnspod.js,script-update-interval=-1
+
+# workingcopy
+WorkingCopy.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/workingcopy.js,type=http-response,pattern=^https:\/\/education\.github\.com\/api\/user$
+
+# 微信公众号去广告
+Wechat.js = type=http-request,pattern=^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js,script-update-interval=0
+
+# 大千视界
+dqsj.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/dqsj.js,type=http-response,pattern=^https:\/\/api\.mvmtv\.com\/index\.php.*(c=user.*a=info|a=addr.*vid=.*)
+
+# 驾校一点通
+jxydt.js = requires-body=1,max-size=262144,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/jxydt.js,type=http-response,pattern=^https:\/\/vipapi\.jxedt\.com\/vip\/check
+
+# 人人视频签到
+rrtv.js = type=cron,cronexp=5 0 * * *,wake-system=1,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/rrtv/rrtv.js,script-update-interval=0
+
+# 人人视频
+rrtv.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/rrtv.js,type=http-response,pattern=^https:\/\/api\.rr\.tv(\/user\/privilege\/list|\/ad\/getAll|\/rrtv-video\/v4plus\/season\/detail)
+
+京东多合一签到 = type=cron,cronexp=5 0 * * *,wake-system=1,timeout=60,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
+
+
+[MITM]
+
+hostname = %APPEND% api.mvmtv.com, mp.weixin.qq.com, api.rr.tv, vipapi.jxedt.com,education.github.com, api.m.jd.com
